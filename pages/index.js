@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import React from 'react';
 
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Cta from '../components/index/Cta';
-import Soon from '../components/index/Soon';
-import Plans from '../components/index/Plans';
-import Platforms from '../components/index/Platforms';
-import Download from '../components/index/Download';
-import Devices from '../components/index/Devices';
+import Navbar from '../components/Navbar.js';
+import Footer from '../components/Footer.js';
+import Cta from '../components/index/Cta.js';
+import Soon from '../components/index/Soon.js';
+import Plans from '../components/index/Plans.js';
+import Platforms from '../components/index/Platforms.js';
+import Download from '../components/index/Download.js';
+import Devices from '../components/index/Devices.js';
 
 export default function Home() {
 
