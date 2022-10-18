@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 export default function Plans() {
   const router = useRouter();
   return (
-    <section className="plan">
+    <section className="plan" id="plans">
       <h3>Elegí tu plan</h3>
       <section className="plan__cards">
         {plans.map((plan, i) => (

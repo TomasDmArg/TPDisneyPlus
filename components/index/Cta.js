@@ -10,9 +10,9 @@ export default function Cta() {
           width={330}
           height={185}
         />
-        <button className="cta__button">
+        <a className="cta__button" href="#plans">
           ELEGÍ TU PLAN
-        </button>
+        </a>
       </section>
     </section>
   );

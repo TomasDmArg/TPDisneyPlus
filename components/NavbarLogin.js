@@ -14,8 +14,6 @@ export default function Navbar() {
       console.log('window.scrollY', window.scrollY);
       if (window.scrollY > 500) {
         setToggleButton(true);
-      } else if (window.scrollY < 500) {
-        setToggleButton(false);
       }
     };
 
@@ -26,25 +24,16 @@ export default function Navbar() {
     };
   }, []);
   return (
-    <header className="header">
+    <header className="header login">
       <nav className="header__nav">
         <Image
           src="/original.svg"
-          className={`img ${toggleButton ? 'active' : ''}`}
           alt="Disney+ Logo"
           width={80}
           height={43}
           style={{ cursor: 'pointer' }}
           onClick={() => router.push('/')}
         />
-        <section className="nav__buttons">
-          <button className={`nav__buttons--suscribe ${toggleButton ? 'active' : ''}`}>
-            SUSCRIBITE AHORA
-          </button>
-          <button className="nav__buttons--button active" onClick={() => router.push('/login')}>
-            INICIAR SESIÓN
-          </button>
-        </section>
       </nav>
     </header>
   );

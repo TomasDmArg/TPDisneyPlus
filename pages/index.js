@@ -10,12 +10,12 @@ import Platforms from '../components/index/Platforms.js';
 import Download from '../components/index/Download.js';
 import Devices from '../components/index/Devices.js';
 
-export default function Home() {
 
+export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Disney+</title>
+        <title>Disney+ | Tus historias favoritas, todas en un mismo lugar.</title>
         <meta name="description" content="Clon del sitio de disney plus, por Tomas Di Mauro (tmdm.com.ar) " />
         <link rel="icon" href="https://static-assets.bamgrid.com/product/disneyplus/favicons/favicon.85e279041d79e51b147c1b6feb4f981e.ico" />
       </Head>
