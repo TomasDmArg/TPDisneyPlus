@@ -17,7 +17,7 @@ export default function Plans() {
             />
             <h4>{plan.title}</h4>
             <p>{plan.description}</p>
-            <button className="plan__cards--button" onClick={() => router.push(plan.link)}>
+            <button className="plan__cards--button" onClick={() => router.push("/register")}>
               {plan.button}
             </button>
           </section>

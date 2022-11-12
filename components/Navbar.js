@@ -38,7 +38,7 @@ export default function Navbar() {
           onClick={() => router.push('/')}
         />
         <section className="nav__buttons">
-          <button className={`nav__buttons--suscribe ${toggleButton ? 'active' : ''}`}>
+          <button onClick={() => router.push('/register')} className={`nav__buttons--suscribe ${toggleButton ? 'active' : ''}`}>
             SUSCRIBITE AHORA
           </button>
           <button className="nav__buttons--button active" onClick={() => router.push('/login')}>
