@@ -2,11 +2,12 @@ import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 
-import Navbar from '../components/NavbarLogin.js';
-import Footer from '../components/FooterLogin.js';
+import Navbar from '../../components/NavbarLogin.js';
+import Footer from '../../components/FooterLogin.js';
 
 export default function Login() {
   const router = useRouter()
+  const [email, setEmail] = React.useState("");
   // TBC
   return (
     <React.Fragment>
@@ -22,8 +23,14 @@ export default function Login() {
           <p classname="p">
             Debes usar este correo electrónico y contraseña para iniciar sesión en tu cuenta de Disney+ y ver tus series y películas favoritas.
           </p>
-          <input aria-invalid="false" aria-label="Escribe el correo electrónico que te gustaría usar para Disney Plus." aria-describedby="email__error" data-testid="" display="inline" id="email" maxlength="" name="email" placeholder="Correo electrónico" type="email" data-gv2elementkey="email" data-gv2interactionkey="email" classname="form" value="" />
-          <button aria-label="Aceptar y continuar" data-testid="login-continue-button" role="button" kind="primary" name="dssLoginSubmit" value="submit" classname="btn" id="" type="submit" data-gv2elementkey="agree_&amp;_continue" data-gv2interactionkey="agree_&amp;_continue" data-gv2-interaction-bound="true">CONTINUAR</button>
+          <input onChange={e => setEmail(e.target.value)} value={email} maxlength="" name="email" placeholder="Correo electrónico" type="email"/>
+          <button role="button" value="submit" classname="btn" type="submit" 
+            onClick={
+              () => {
+                router.push(`/login/${email}`);
+              }
+            }
+          >CONTINUAR</button>
           <section className="login__section--subscribe"><p class="p">¿Primera vez en Disney+?</p> <button>Suscribirse</button></section>
         </section>
       </main>

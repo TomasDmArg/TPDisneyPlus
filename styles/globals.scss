@@ -53,7 +53,8 @@ button {
         margin-bottom: 32px;
         font-family: "Avenir Roman", sans-serif;
       }
-      & > input {
+      
+      & > input, & .mantine-Input-wrapper {
         box-sizing: border-box;
         font-family: "Avenir Roman", sans-serif;
         font-size: 15px;
@@ -328,6 +329,29 @@ button {
     cursor: unset;
   }
 }
+.mantine-PasswordInput-input{
+  background-color: transparent;
+  border: 0px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  & > input{
+    font-family: "Avenir Roman", sans-serif;
+    color: $txt;
+    height: 100%;
+  }
+}
+.mantine-InputWrapper-label{
+  font-family: "Avenir Roman", sans-serif;
+  color: $txt;
+}
+.mantine-PasswordInput-visibilityToggle{
+  &:hover{
+    background-color: transparent;
+  }
+}
+
 .soon {
   width: 100%;
   display: flex;
