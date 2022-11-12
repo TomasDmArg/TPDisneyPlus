@@ -16,6 +16,7 @@ export default function Login() {
         <meta name="description" content="Clon del sitio de disney plus, por Tomas Di Mauro (tmdm.com.ar) " />
         <link rel="icon" href="https://static-assets.bamgrid.com/product/disneyplus/favicons/favicon.85e279041d79e51b147c1b6feb4f981e.ico" />
       </Head>
+      
       <Navbar />
       <main className="main login">
         <section className="login__section">
@@ -23,15 +24,15 @@ export default function Login() {
           <p classname="p">
             Debes usar este correo electrónico y contraseña para iniciar sesión en tu cuenta de Disney+ y ver tus series y películas favoritas.
           </p>
-          <input onChange={e => setEmail(e.target.value)} value={email} maxlength="" name="email" placeholder="Correo electrónico" type="email"/>
-          <button role="button" value="submit" classname="btn" type="submit" 
+          <input onChange={e => setEmail(e.target.value)} value={email} maxlength="" name="email" placeholder="Correo electrónico" type="email" />
+          <button role="button" value="submit" classname="btn" type="submit"
             onClick={
               () => {
                 router.push(`/login/${email}`);
               }
             }
           >CONTINUAR</button>
-          <section className="login__section--subscribe"><p class="p">¿Primera vez en Disney+?</p> <button>Suscribirse</button></section>
+          <section className="login__section--subscribe"><p class="p">¿Primera vez en Disney+?</p> <button onClick={() => router.push("/register")}>Suscribirse</button></section>
         </section>
       </main>
       <Footer />

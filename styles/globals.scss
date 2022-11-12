@@ -31,9 +31,8 @@ button {
   color: #040714;
 }
 .main {
-
   &.login {
-    padding: 100px 0 32px 0;
+    padding: 100px 0 305px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -53,8 +52,35 @@ button {
         margin-bottom: 32px;
         font-family: "Avenir Roman", sans-serif;
       }
-      
-      & > input, & .mantine-Input-wrapper {
+      .mantine-Group-root {
+        display: flex;
+        align-items: left;
+        justify-content: space-between;
+        & input {
+          width: 47%;
+          box-sizing: border-box;
+          font-family: "Avenir Roman", sans-serif;
+          font-size: 15px;
+          line-height: 24px;
+          margin: 0px;
+          overflow: visible;
+          backdrop-filter: blur(50px);
+          background-color: rgba(250, 250, 250, 0.1);
+          caret-color: rgb(2, 231, 245);
+          height: 54px;
+          padding: 7px 12px;
+          transition: all 0.1s ease 0s;
+          border-radius: 4px;
+          border: none;
+          margin-bottom: 24px;
+          &:focus {
+            border: 1px solid rgba(249, 249, 249, 0.298);
+            outline: none;
+          }
+        }
+      }
+      & > input,
+      & .mantine-Input-wrapper {
         box-sizing: border-box;
         font-family: "Avenir Roman", sans-serif;
         font-size: 15px;
@@ -112,6 +138,67 @@ button {
           transition: background-color 0.2s ease-in-out;
         }
       }
+    }
+  }
+}
+.dashboard {
+  padding: 70px;
+  margin: 70px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    margin: 20px 0;
+  }
+  & input {
+    display: block;
+    box-sizing: border-box;
+    font-family: "Avenir Roman", sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0px;
+    overflow: visible;
+    backdrop-filter: blur(50px);
+    background-color: rgba(250, 250, 250, 0.1);
+    caret-color: rgb(2, 231, 245);
+    height: 54px;
+    padding: 7px 12px;
+    transition: all 0.1s ease 0s;
+    width: 374px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 24px;
+    &:focus {
+      border: 1px solid rgba(249, 249, 249, 0.298);
+      outline: none;
+    }
+  }
+  & table {
+    padding: 20px;
+    background-color: #ffffff10;
+    border-radius: 5px;
+    & th {
+      padding: 10px;
+      text-align: left;
+      font-size: 15px;
+      line-height: 24px;
+      color: #f9f9f9;
+      font-weight: 800;
+    }
+    // Odd rows are white
+    & tr:nth-child(odd) {
+      background-color: #ffffff10;
+    }
+    // Even rows are light grey
+    & tr:nth-child(even) {
+      background-color: #ffffff20;
+    }
+    & td {
+      padding: 10px;
+      text-align: left;
+      font-size: 15px;
+      line-height: 24px;
+      color: #f9f9f990;
     }
   }
 }
@@ -329,25 +416,25 @@ button {
     cursor: unset;
   }
 }
-.mantine-PasswordInput-input{
+.mantine-PasswordInput-input {
   background-color: transparent;
   border: 0px;
   height: 100%;
   display: flex;
   align-items: center;
 
-  & > input{
+  & > input {
     font-family: "Avenir Roman", sans-serif;
     color: $txt;
     height: 100%;
   }
 }
-.mantine-InputWrapper-label{
+.mantine-InputWrapper-label {
   font-family: "Avenir Roman", sans-serif;
   color: $txt;
 }
-.mantine-PasswordInput-visibilityToggle{
-  &:hover{
+.mantine-PasswordInput-visibilityToggle {
+  &:hover {
     background-color: transparent;
   }
 }
@@ -559,7 +646,7 @@ button {
   flex-flow: row wrap;
   max-width: 500px;
   & > * {
-  color: #cacaca;
+    color: #cacaca;
   }
 }
 .download {
@@ -737,7 +824,7 @@ button {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 100px 0px 0px; 
+  margin: 19px 0px 20px;
   & > * {
     color: #c0c0c0;
     font-size: 12px;

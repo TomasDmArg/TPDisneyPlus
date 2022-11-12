@@ -21,9 +21,9 @@ export default function Login() {
         return response.json();
       }).then((data) => {
         console.log(data)
-        if(data == 1){
-          router.push(`/dashboard/${email}`);
-        }else{
+        if (data == 1) {
+          router.push(`/dashboard/${router.query.email}`);
+        } else {
           alert("Contraseña incorrecta");
         }
         setLogin(false);
@@ -46,12 +46,12 @@ export default function Login() {
           <p className="p">
             Ahora ingrese su contraseña
           </p>
-          <PasswordInput className="form" placeholder="Password" label="Contraseña" onChange={e => setPassword(e.target.value)} value={password}/>
+          <PasswordInput className="form" placeholder="Password" label="Contraseña" onChange={e => setPassword(e.target.value)} value={password} />
           <button role="button" value="submit" className="btn" type="submit"
-            onClick={ ()=> setLogin(true) }
+            onClick={() => setLogin(true)}
           >CONTINUAR</button>
           <section className="login__section--subscribe">
-            <p class="p"> ¿Primera vez en Disney+?</p> 
+            <p class="p"> ¿Primera vez en Disney+?</p>
             <button onClick={() => setLogin(true)}>Suscribirse</button>
           </section>
         </section>

@@ -4,29 +4,27 @@ import { useRouter } from "next/router"
 
 import Navbar from '../../components/NavbarLogin.js';
 import Footer from '../../components/FooterLogin.js';
-import { PasswordInput } from "@mantine/core";
+import { Group, PasswordInput } from "@mantine/core";
 
 export default function Register() {
   const router = useRouter()
   const [password, setPassword] = React.useState("");
-  const [login, setLogin] = React.useState(false);
+  const [login, setRegister] = React.useState(false);
   const [email, setEmail] = React.useState("");
-
+  const [name, setName] = React.useState("");
+  const [lastname, setLastname] = React.useState("");
+  const [id, setID] = React.useState("");
   React.useEffect(() => {
-    if (password.length > 0 && login) {
-      console.log("Fetching...", router.query.email, password);
-      fetch(`https://tmdm.com.ar/disney/add.php?email=${router.query.email}&pass=${password}`, {
+    if (password.length > 0 && email.length > 0 && name.length > 0 && lastname.length > 0 && id.length > 0) {
+      fetch(`https://tmdm.com.ar/disney/add.php?email=${email}&name=${name}&lastname=${lastname}&pass=${password}&DNI=${id}`, {
         origin: "https://tmdm.com.ar"
-      }).then((response) => {
-        return response.json();
       }).then((data) => {
-        console.log(data)
-        if(data == 1){
+        if (data.status === 200) {
           router.push(`/dashboard/${email}`);
-        }else{
-          alert("Contraseña incorrecta");
+        } else {
+          alert("Cuenta ya existente, o error en el formulario");
         }
-        setLogin(false);
+        setRegister(false);
       });
     }
   }, [login]);
@@ -35,24 +33,33 @@ export default function Register() {
   return (
     <React.Fragment>
       <Head>
-        <title>Iniciar sesión | Disney+</title>
+        <title>Suscribirse | Disney+</title>
         <meta name="description" content="Clon del sitio de disney plus, por Tomas Di Mauro (tmdm.com.ar) " />
         <link rel="icon" href="https://static-assets.bamgrid.com/product/disneyplus/favicons/favicon.85e279041d79e51b147c1b6feb4f981e.ico" />
       </Head>
       <Navbar />
       <main className="main login">
         <section className="login__section">
-          <h3 className="h3">Ingrese su contraseña</h3>
+          <h3 className="h3">Suscribirse</h3>
           <p className="p">
-            Ahora ingrese su contraseña
+            Ingrese los siguientes campos para suscribirse a Disney+.
           </p>
-          <PasswordInput className="form" placeholder="Password" label="Contraseña" onChange={e => setPassword(e.target.value)} value={password}/>
+
+          <Group>
+            <input onChange={e => setName(e.target.value)} autocomplete="off" value={name} maxlength="" name="name" placeholder="Nombre" type="name" />
+            <input onChange={e => setLastname(e.target.value)} autocomplete="off" value={lastname} maxlength="" name="lastname" placeholder="Apellido" type="lastname" />
+          </Group>
+
+          <input onChange={e => setID(e.target.value)} autocomplete="off" value={id} maxlength="" name="id" placeholder="DNI" type="id" />
+          <input onChange={e => setEmail(e.target.value)} autocomplete="off" value={email} maxlength="" name="email" placeholder="Correo electrónico" type="email" />
+          <PasswordInput autocomplete="off" className="form" placeholder="Password" label="Contraseña" onChange={e => setPassword(e.target.value)} value={password} />
+
           <button role="button" value="submit" className="btn" type="submit"
-            onClick={ ()=> setLogin(true) }
+            onClick={() => setRegister(true)}
           >CONTINUAR</button>
           <section className="login__section--subscribe">
-            <p class="p"> ¿Primera vez en Disney+?</p> 
-            <button onClick={() => setLogin(true)}>Suscribirse</button>
+            <p class="p"> ¿Ya tienes cuenta en Disney+?</p>
+            <button onClick={() => router.push("/login")}>Ingresar</button>
           </section>
         </section>
       </main>
